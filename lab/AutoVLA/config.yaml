@@ -1,0 +1,12 @@
+project: AutoVLA
+repo_dir: repos/AutoVLA
+model_dir: D:/anaconda3_cache/modelscope_cache/models/qwen/Qwen2___5-VL-3B-Instruct
+model_class_hint: AutoVLABridged (Qwen2.5-VL-3B-Instruct base)
+build_model: build_model.py
+build_input: build_input.py
+device: cpu
+dtype: bfloat16
+note: >
+  AutoVLA (NeurIPS 2025) 基于 Qwen2.5-VL-3B-Instruct；
+  核心就是 VLM + resized token embeddings，轨迹通过 action tokens 自回归生成。
+  checkpoint 包含完整模型权重（16GB .ckpt），本实验直接加载基座模型做前向采集。

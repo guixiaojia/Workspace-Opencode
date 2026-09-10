@@ -1,0 +1,12 @@
+project: quick-start-VLA4AD
+repo_dir: repos/quick-start-VLA4AD
+model_dir: D:/anaconda3_cache/modelscope_cache/models/Qwen/Qwen2___5-VL-3B-Instruct
+model_class_hint: Qwen2_5_VLAForConditionalGeneration (bridged in build_model)
+build_model: build_model.py
+build_input: build_input.py
+device: cpu
+dtype: bfloat16
+note: >
+  transformers 4.57.6 + ms-swift 3.10.3（与仓库要求 3.10.0dev 同代）跑真实权重；
+  build_model 已回退到仓库原生 forward 路径（hidden_states[-1]），仅保留 loss 记账。
+  本实验无数据集不训练，ms-swift 训练链路仍绕开。轨迹头随机初始化（等价 save_custom_model.py 刚保存未训练的状态）。

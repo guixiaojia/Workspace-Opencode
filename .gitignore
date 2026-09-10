@@ -1,0 +1,106 @@
+# ==================== Python ====================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==================== Virtual Environments ====================
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ==================== IDE ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==================== Logs ====================
+*.log
+logs/
+
+# ==================== Model Weights & Checkpoints ====================
+# 模型权重文件（体积大，不上传）
+*.ckpt
+*.ckpt.*
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.h5
+*.pkl
+
+# checkpoints 文件夹（存放模型权重）
+checkpoints/
+
+# ==================== repos 文件夹 ====================
+# 第三方仓库（只读，不上传）
+repos/
+
+# ==================== lab 生成文件 ====================
+# lab 目录下的输出文件
+lab/*/outputs/
+lab/*/*.log
+lab/*/trace.json
+lab/*/model_structure.md
+
+# ==================== 数据集 ====================
+*.csv
+*.jsonl
+*.parquet
+datasets/
+
+# ==================== 临时文件 ====================
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ==================== Node.js (如果有) ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==================== Conda ====================
+.conda/
+*.conda
+
+# ==================== Docker ====================
+docker-compose.override.yml
+
+# ==================== 其他 ====================
+.cache/
+*.cache
+.env.local
+.env.*.local
