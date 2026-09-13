@@ -1,0 +1,13 @@
+project: WA-JEPA
+repo_dir: repos/WA-JEPA
+model_dir: checkpoints/WA-JEPA
+model_class_hint: MultiViewCausalFutureMaskedJEPA (V-JEPA 2.1 ViT-L/16 base)
+build_model: build_model.py
+build_input: build_input.py
+device: cpu
+dtype: bfloat16
+note: >
+  WA-JEPA (2026) 是 V-JEPA 原生世界-动作模型，专为自动驾驶规划设计。
+  基于 V-JEPA 2.1 ViT-L/16 编码器，联合流预测器预测未来场景 token 和自车轨迹。
+  需要 V-JEPA 2.1 预训练权重和 WA-JEPA checkpoint。
+  输入：4个摄像头视图 × 4个历史帧，输出：8个未来轨迹点（2 Hz）。
