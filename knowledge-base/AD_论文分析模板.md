@@ -1,4 +1,4 @@
-# 自动驾驶论文分析模板
+# 论文分析模板
 
 > 本文档定义了论文分析报告的标准格式，用于 AD-Single-Paper-Technical-Audit 和 AD-Literature-Evolution-Survey 技能。
 
@@ -28,39 +28,39 @@
 
 ## 一、模型组件
 
-| 组件 | 具体实现 | 参数量 | 说明 |
-|------|---------|--------|------|
-| **Vision Encoder** | [例如：SigLIP ViT-L/14] | [例如：300M] | [简要说明] |
-| **LLM** | [例如：Qwen2.5-7B] | [例如：7B] | [简要说明] |
-| **Projector** | [例如：2层MLP] | [例如：10M] | [简要说明] |
-| **Action Head** | [例如：Flow Matching Head] | [例如：50M] | [简要说明] |
-| **其他组件** | [例如：World Model Decoder] | [例如：200M] | [简要说明] |
+| 组件 | 常见类型 | 推荐参数状态 |
+|------|---------|-------------|
+| **Vision Encoder** | ViT，CLIP，DINO，EVA，SigLIP，Video Encoder，BEV Encoder | Frozen（冻结） |
+| **Projector / Connector** | Linear Projector，MLP Projector，Q-Former，Cross-Attention Connector | Full Fine-tuning（全量微调） |
+| **LLM / Multimodal LLM** | LLaMA，Qwen，Vicuna，Gemma，所有开源大模型 | Partial Fine-tuning（LoRA/QLoRA） |
+| **Action Head** | [根据具体模型填写] | Full Fine-tuning（全量微调） |
+
+### 参数状态说明
+
+| 状态 | 说明 | 典型场景 |
+|------|------|---------|
+| **Frozen** | 完全冻结，不更新参数 | 预训练成熟的视觉编码器 |
+| **Partial Fine-tuning** | 部分微调（LoRA、Adapter 等） | 大参数量 LLM，节省显存 |
+| **Full Fine-tuning** | 全量微调所有参数 | 小型模块或任务关键组件 |
 
 ---
 
-## 二、参数状态
+## 二、参数更新方法
 
-| 组件 | 冻结/训练 | 训练方法 | 可训参数占比 |
-|------|----------|---------|-------------|
-| **Vision Encoder** | 冻结 | - | 0% |
-| **Projector** | 训练 | 全参 | ~0.1% |
-| **LLM** | 冻结 + LoRA | LoRA r=16 | ~2% |
-| **LLM-LoRA** | 训练 | LoRA | ~2% |
-| **Action Head** | 训练 | 全参 | ~5% |
-
----
-
-## 三、微调方法
-
-| 方法 | 应用位置 | 关键超参 | 说明 |
-|------|---------|---------|------|
-| **LoRA** | LLM 全线性层 | r=16, α=32, lr=1e-4 | [说明] |
-| **Projector 训练** | Projector | lr=1e-3 | [说明] |
-| **其他** | [位置] | [超参] | [说明] |
+| 类型 | 方法 | 典型场景 |
+|------|------|---------|
+| **Partial Fine-tuning** | LoRA | LLM、Vision Encoder 参数量大，显存受限 |
+| | QLoRA | 同上，显存更紧张时使用 |
+| | Adapter | 需要多任务切换，插入轻量适配器 |
+| | Prompt Tuning | 冻结主体，仅学习软提示 |
+| | In-Context Learning | 零样本/少样本，不更新参数 |
+| **Full Fine-tuning** | 全参微调 | Projector、Action Head 等小型模块 |
+| | 渐进式解冻 | 分阶段解冻部分层，平衡稳定性和学习能力 |
+| | 混合精度全参 | FP16/BF16 全参训练，加速且省显存 |
 
 ---
 
-## 四、训练范式
+## 三、训练范式
 
 | 阶段 | 目标 | 数据 | 损失函数 | 备注 |
 |------|------|------|---------|------|
@@ -70,7 +70,7 @@
 
 ---
 
-## 五、技术定位
+## 四、技术定位
 
 | 维度 | 定位 |
 |------|------|
@@ -83,7 +83,7 @@
 
 ---
 
-## 六、任务与数据集
+## 五、任务与数据集
 
 | 维度 | 信息 |
 |------|------|
@@ -96,7 +96,7 @@
 
 ---
 
-## 七、复现信息
+## 六、复现信息
 
 | 维度 | 信息 |
 |------|------|
@@ -110,13 +110,13 @@
 
 ---
 
-## 八、关键图表
+## 七、关键图表
 
 > （可选）如有关键的架构图、性能对比表，在此引用或描述。
 
 ---
 
-## 九、总结
+## 八、总结
 
 ### 技术贡献
 1. [贡献1]
