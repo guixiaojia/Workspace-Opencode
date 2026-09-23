@@ -151,5 +151,5 @@
 | 技术路线 | Modular VLA | AD_演进框架.md |
 | 微调方法 | LoRA + 全参 MLP | AD_模型训练要素.md |
 | 训练范式 | SFT（双任务） | AD_模型训练要素.md |
-| 任务类型 | Planning | AD_任务数据集与开源.md |
+| 任务类型 | Planning | AD_任务与数据集.md |
 | 复现难度 | 低 | AD_开发工具生态.md |

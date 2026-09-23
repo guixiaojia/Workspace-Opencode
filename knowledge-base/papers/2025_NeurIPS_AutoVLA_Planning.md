@@ -149,4 +149,4 @@
 | 技术路线 | Reasoning VLA | AD_演进框架.md |
 | 微调方法 | LoRA + GRPO | AD_模型训练要素.md |
 | 训练范式 | SFT + RFT | AD_模型训练要素.md |
-| 任务类型 | Planning | AD_任务数据集与开源.md |
+| 任务类型 | Planning | AD_任务与数据集.md |

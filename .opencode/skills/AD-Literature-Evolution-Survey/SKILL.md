@@ -62,10 +62,9 @@ description: 分析多个 GitHub Awesome 列表与仓库中的自动驾驶基础
 7. https://github.com/thinklab-sjtu/awesome-llm4ad
 8. https://github.com/worldbench/awesome-vla-for-ad
 9. https://github.com/JiahuaDong/Awesome-World-Models
-10. https://github.com/autonomousdrivingkr/Awesome-Autonomous-Driving
-11. https://github.com/KwanWaiPang/Awesome-VLA
-12. https://github.com/honalele/Foundation-Models-Meet-Driving-World-Models
-13. https://github.com/Yanyeoo/Awesome-Efficient-VLA4AD
+10. https://github.com/KwanWaiPang/Awesome-VLA
+11. https://github.com/honalele/Foundation-Models-Meet-Driving-World-Models
+12. https://github.com/Yanyeoo/Awesome-Efficient-VLA4AD
 
 如果用户提供更新的 URL，则增加上用户提供的 URL。
 
